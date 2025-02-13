@@ -48,6 +48,7 @@ body {
 }
 
 .productCard {
+    margin: 0 auto;
     width: 300px;
     height: 400px;
     perspective: 1000px;
