@@ -4,6 +4,7 @@ const taskName = document.getElementById("taskName");
 const taskPriority = document.getElementById("taskPriority");
 const addTaskButton = document.getElementById("addTaskButton");
 const searchInput = document.getElementById("searchInput");
+const filterPriority = document.getElementById("filterPriority");
 const taskCount = document.getElementById("taskCount");
 const darkModeButton = document.getElementById("darkModeButton");
 
@@ -37,7 +38,10 @@ function renderTasks() {
 
     const filteredTasks = tasks.filter(t => {
         const searchVal = searchInput.value.toLowerCase();
-        return t.name.toLowerCase().includes(searchVal);
+        const filterVal = filterPriority.value;
+        const matchesSearch = t.name.toLowerCase().includes(searchVal);
+        const matchesFilter = filterVal === "All" || t.priority === filterVal;
+        return matchesSearch && matchesFilter;
     });
 
     filteredTasks.forEach(task => {
@@ -152,6 +156,10 @@ board.addEventListener("drop", (e) => {
 });
 
 searchInput.addEventListener("input", () => {
+    renderTasks();
+});
+
+filterPriority.addEventListener("change", () => {
     renderTasks();
 });
 

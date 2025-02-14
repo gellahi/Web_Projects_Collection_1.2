@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8" />
-    <title>Trello-Style Priority Board</title>
+    <title>Task 2 – Interactive To-Do List with Priority Management</title>
     <link rel="stylesheet" href="style.css" />
 </head>
 
@@ -26,6 +26,12 @@
             <button type="button" class="addTaskButton" id="addTaskButton">Add Task</button>
         </div>
         <input type="text" class="searchInput" id="searchInput" placeholder="Search tasks..." />
+        <select class="prioritySelect" id="filterPriority">
+            <option value="All" selected>All</option>
+            <option value="High">High</option>
+            <option value="Medium">Medium</option>
+            <option value="Low">Low</option>
+        </select>
         <div class="taskCount" id="taskCount">Incomplete Tasks: 0</div>
     </div>
 

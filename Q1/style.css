@@ -51,7 +51,8 @@ body {
 
 .productCard {
     margin: 0 auto;
-    width: 300px;
+    width: 100%;
+    max-width: 300px;
     height: 400px;
     perspective: 1000px;
 }
@@ -189,4 +190,33 @@ body {
 
 .buyNowButton:hover {
     background-color: #e65c00;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #cardContainer {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+
+    .productCard {
+        height: 350px;
+    }
+
+    .productImage {
+        height: 180px;
+    }
+}
+
+@media (max-width: 480px) {
+    #cardContainer {
+        grid-template-columns: 1fr;
+    }
+
+    .productCard {
+        height: 300px;
+    }
+
+    .productImage {
+        height: 150px;
+    }
 }
