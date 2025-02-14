@@ -1,11 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta charset="UTF-8" />
+    <title>Trello-Style Priority Board</title>
+    <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
-    
+    <div class="topBar">
+        <div class="topBarLeft">
+            <div class="boardTitle">My Trello Board</div>
+        </div>
+        <button class="darkModeButton" id="darkModeButton">Dark Mode</button>
+    </div>
+
+    <div class="header">
+        <div class="formContainer">
+            <input type="text" class="taskInput" id="taskName" placeholder="Task name..." />
+            <select class="prioritySelect" id="taskPriority">
+                <option value="High">High</option>
+                <option value="Medium" selected>Medium</option>
+                <option value="Low">Low</option>
+            </select>
+            <button type="button" class="addTaskButton" id="addTaskButton">Add Task</button>
+        </div>
+        <input type="text" class="searchInput" id="searchInput" placeholder="Search tasks..." />
+        <div class="taskCount" id="taskCount">Incomplete Tasks: 0</div>
+    </div>
+
+    <div class="board" id="board">
+        <div class="column high" id="highColumn">
+            <div class="columnHeader">High Priority</div>
+            <div class="taskList" id="highList"></div>
+        </div>
+        <div class="column medium" id="mediumColumn">
+            <div class="columnHeader">Medium Priority</div>
+            <div class="taskList" id="mediumList"></div>
+        </div>
+        <div class="column low" id="lowColumn">
+            <div class="columnHeader">Low Priority</div>
+            <div class="taskList" id="lowList"></div>
+        </div>
+        <div class="column completed" id="completedColumn">
+            <div class="columnHeader">Completed Tasks</div>
+            <div class="taskList" id="completedList"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
 </body>
+
 </html>
