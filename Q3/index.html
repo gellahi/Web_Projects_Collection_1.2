@@ -1,11 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta charset="UTF-8" />
+    <title>Selective String Reversal</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    
+    <h1>Selective String Reversal</h1>
+    <div class="formContainer">
+        <div class="inputGroup">
+            <label for="inputString">Enter String</label>
+            <input type="text" id="inputString" placeholder="Type your text here..." />
+        </div>
+        <div class="inputGroup">
+            <label for="rollNumber">Enter Roll Number (e.g. 22F-3636)</label>
+            <input type="text" id="rollNumber" placeholder="22F-3636" />
+        </div>
+        <div class="inputGroup">
+            <label for="manualSkip">Manual Skip Interval (Bonus)</label>
+            <input type="text" id="manualSkip" placeholder="Leave empty to use roll sum" />
+        </div>
+        <div class="buttonsRow">
+            <button class="transformButton" id="transformButton">Transform</button>
+        </div>
+    </div>
+
+    <div class="listContainer">
+        <ul class="resultsList" id="resultsList"></ul>
+    </div>
+    <script src="script.js"></script>
 </body>
+
 </html>
