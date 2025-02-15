@@ -2,57 +2,74 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Task 2 – Interactive To-Do List with Priority Management</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
 <body>
-    <div class="topBar">
-        <div class="topBarLeft">
-            <div class="boardTitle">My Trello Board</div>
+    <nav class="topNav">
+        <div class="topNavLeft">
+            <div class="logo">
+                <svg viewBox="0 0 24 24" width="24" height="24">
+                    <path fill="currentColor"
+                        d="M19.3 4H4.7C3.2 4 2 5.2 2 6.7v10.7C2 18.8 3.2 20 4.7 20h14.7c1.5 0 2.7-1.2 2.7-2.7V6.7C22 5.2 20.8 4 19.3 4zM10 16H5v-3h5v3zm0-5H5V8h5v3zm9 5h-5v-3h5v3zm0-5h-5V8h5v3z" />
+                </svg>
+                <span>Trello</span>
+            </div>
         </div>
-        <button class="darkModeButton" id="darkModeButton">Dark Mode</button>
+        <div class="topNavRight">
+            <button id="darkModeButton" class="darkModeButton">
+                <i id="darkModeIcon" class="fas fa-moon"></i>
+            </button>
+        </div>
+    </nav>
+
+    <div class="boardHeader">
+        <div class="boardTitle">Sprint Board</div>
+        <div class="boardControls">
+            <div class="formContainer">
+                <input type="text" id="taskName" class="taskInput" placeholder="Add new task...">
+                <select id="taskPriority" class="prioritySelect">
+                    <option value="High">High Priority</option>
+                    <option value="Medium">Medium Priority</option>
+                    <option value="Low">Low Priority</option>
+                </select>
+                <button id="addTaskButton" class="addTaskButton">Add Task</button>
+            </div>
+            <div class="searchContainer">
+                <input type="text" id="searchInput" class="searchInput" placeholder="Search tasks...">
+                <select id="filterPriority" class="prioritySelect">
+                    <option value="All">All Priorities</option>
+                    <option value="High">High Priority</option>
+                    <option value="Medium">Medium Priority</option>
+                    <option value="Low">Low Priority</option>
+                </select>
+            </div>
+            <div id="taskCount" class="taskCount">Incomplete Tasks: 0</div>
+        </div>
     </div>
 
-    <div class="header">
-        <div class="formContainer">
-            <input type="text" class="taskInput" id="taskName" placeholder="Task name..." />
-            <select class="prioritySelect" id="taskPriority">
-                <option value="High">High</option>
-                <option value="Medium" selected>Medium</option>
-                <option value="Low">Low</option>
-            </select>
-            <button type="button" class="addTaskButton" id="addTaskButton">Add Task</button>
-        </div>
-        <input type="text" class="searchInput" id="searchInput" placeholder="Search tasks..." />
-        <select class="prioritySelect" id="filterPriority">
-            <option value="All" selected>All</option>
-            <option value="High">High</option>
-            <option value="Medium">Medium</option>
-            <option value="Low">Low</option>
-        </select>
-        <div class="taskCount" id="taskCount">Incomplete Tasks: 0</div>
-    </div>
-
-    <div class="board" id="board">
-        <div class="column high" id="highColumn">
+    <main id="board" class="board">
+        <div class="column high">
             <div class="columnHeader">High Priority</div>
-            <div class="taskList" id="highList"></div>
+            <div id="highList" class="taskList"></div>
         </div>
-        <div class="column medium" id="mediumColumn">
+        <div class="column medium">
             <div class="columnHeader">Medium Priority</div>
-            <div class="taskList" id="mediumList"></div>
+            <div id="mediumList" class="taskList"></div>
         </div>
-        <div class="column low" id="lowColumn">
+        <div class="column low">
             <div class="columnHeader">Low Priority</div>
-            <div class="taskList" id="lowList"></div>
+            <div id="lowList" class="taskList"></div>
         </div>
-        <div class="column completed" id="completedColumn">
-            <div class="columnHeader">Completed Tasks</div>
-            <div class="taskList" id="completedList"></div>
+        <div class="column completed">
+            <div class="columnHeader">Completed</div>
+            <div id="completedList" class="taskList"></div>
         </div>
-    </div>
+    </main>
     <script src="script.js"></script>
 </body>
 
