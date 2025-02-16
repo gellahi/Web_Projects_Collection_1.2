@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Projects Collection 1.2</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f3f4f6, #e5e7eb);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            color: #333;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: #222;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .card {
+            padding: 20px;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            margin: 0 auto;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-top-left-radius: 12px;
+            border-top-right-radius: 12px;
+            margin-bottom: 15px;
+        }
+
+        .card-content {
+            padding: 1rem;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: #222;
+        }
+
+        .card-description {
+            font-size: 0.95rem;
+            color: #666;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Web Projects Collection 1.2</h1>
+    <div class="container">
+        <a href="Q1/index.html" class="card">
+            <img src="Q1/image.png" alt="Task 1 Thumbnail">
+            <div class="card-content">
+                <div class="card-title">Task 1 – Unique Product Card Design</div>
+                <div class="card-description">Showcases a unique product card design with a dark mode toggle feature.
+                </div>
+            </div>
+        </a>
+        <a href="Q2/index.html" class="card">
+            <img src="Q2/image.png" alt="Task 2 Thumbnail">
+            <div class="card-content">
+                <div class="card-title">Task 2 – Interactive To-Do List</div>
+                <div class="card-description">An interactive to-do list with priority management and dark mode.</div>
+            </div>
+        </a>
+        <a href="Q3/index.html" class="card">
+            <img src="Q3/image.png" alt="Task 3 Thumbnail">
+            <div class="card-content">
+                <div class="card-title">Task 3 – Selective String Reversal</div>
+                <div class="card-description">Allows users to selectively reverse a string based on a skip interval.
+                </div>
+            </div>
+        </a>
+        <a href="Q4/index.html" class="card">
+            <img src="Q4/image.png" alt="Task 4 Thumbnail">
+            <div class="card-content">
+                <div class="card-title">Task 4 – Bank Account System</div>
+                <div class="card-description">Simulates a bank account system with deposit, withdraw, and transaction
+                    history.</div>
+            </div>
+        </a>
+        <a href="Q5/index.html" class="card">
+            <img src="Q5/image.png" alt="Task 5 Thumbnail">
+            <div class="card-content">
+                <div class="card-title">Task 5 – Roll-Number based Discount System</div>
+                <div class="card-description">Applies discounts based on roll number and promo codes for product
+                    selection.</div>
+            </div>
+        </a>
+    </div>
+</body>
+
+</html>
