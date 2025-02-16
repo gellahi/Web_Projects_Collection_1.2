@@ -1,0 +1,254 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #f3f4f6, #e5e7eb);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    color: #333;
+}
+
+h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #222;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.container {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 1000px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.inputsRow {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.inputGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+label {
+    font-weight: 500;
+    color: #555;
+}
+
+input[type="text"],
+input[type="number"] {
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    outline: none;
+    width: 250px;
+    transition: border 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+    border-color: #007bff;
+}
+
+.sortGroup {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+select {
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    outline: none;
+    transition: border 0.3s;
+}
+
+select:focus {
+    border-color: #007bff;
+}
+
+/* Promo Codes Section */
+.promoCodesSection {
+    margin-top: 1rem;
+}
+
+.promoCodesSection h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #222;
+}
+
+.promoCodesGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+}
+
+.promoCard {
+    background: linear-gradient(135deg, #e0f7fa, #e0f2f1);
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.promoCode {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #00796b;
+}
+
+.promoDesc {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.copyBtn {
+    align-self: flex-end;
+    background: #00796b;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 0.4rem 0.8rem;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background 0.3s;
+}
+
+.copyBtn:hover {
+    background: #00695c;
+}
+
+/* Products Grid */
+.productsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+}
+
+.productCard {
+    background: linear-gradient(135deg, #fffcf9, #f7f7f7);
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.productCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+}
+
+.productImage {
+    width: 100%;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+}
+
+.productName {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #222;
+}
+
+.productPrice {
+    font-size: 0.95rem;
+    color: #666;
+    margin-bottom: 0.75rem;
+}
+
+.productSelect {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.quantityInput {
+    width: 60px;
+    padding: 0.5rem;
+}
+
+/* Totals and Buttons */
+.buttonsRow {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.btn {
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.btnReset {
+    background: #dc3545;
+    color: #fff;
+}
+
+.btnReset:hover {
+    background: #c82333;
+}
+
+.btnClear {
+    background: #6c757d;
+    color: #fff;
+}
+
+.btnClear:hover {
+    background: #5a6268;
+}
+
+.totalsRow {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+}
+
+.totalsRow div {
+    font-size: 1.1rem;
+}
+
+.discountLabel {
+    color: #007bff;
+}
+
+.finalPrice {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: #28a745;
+}
+
+.note {
+    font-size: 0.85rem;
+    color: #888;
+}

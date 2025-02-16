@@ -1,11 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Task 5 – Roll-Number based Discount System</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    
+    <h1>Student Discount Portal</h1>
+    <div class="container">
+        <div class="inputsRow">
+            <div class="inputGroup">
+                <label for="rollNumber">Roll Number</label>
+                <input type="text" id="rollNumber" value="22F3636" />
+            </div>
+            <div class="inputGroup">
+                <label for="promoCode">Promo Code (Bonus)</label>
+                <input type="text" id="promoCode" placeholder="Enter promo code..." />
+            </div>
+            <div class="sortGroup">
+                <label for="sortSelect">Sort Products By:</label>
+                <select id="sortSelect">
+                    <option value="default">Default</option>
+                    <option value="lowToHigh">Price: Low to High</option>
+                    <option value="highToLow">Price: High to Low</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Promo Codes Panel -->
+        <div class="promoCodesSection">
+            <h2>Available Promo Codes</h2>
+            <div class="promoCodesGrid" id="promoCodesGrid"></div>
+        </div>
+
+        <div class="productsGrid" id="productsGrid">
+            <!-- Product cards generated here -->
+        </div>
+        <div class="buttonsRow">
+            <button class="btn btnClear" id="clearSelectionBtn">Clear Selection</button>
+            <button class="btn btnReset" id="resetBtn">Reset Form</button>
+        </div>
+        <div class="totalsRow">
+            <div id="discountText"></div>
+            <div id="finalPrice" class="finalPrice"></div>
+            <div class="note">Max discount is 50% (60% after 2+ items) plus bonus promo code.</div>
+        </div>
+    </div>
+    <script src="script.js"></script>
 </body>
+
 </html>
