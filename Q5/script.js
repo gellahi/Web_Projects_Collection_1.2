@@ -132,6 +132,7 @@ const renderPromoCodes = () => {
             navigator.clipboard.writeText(promo.code);
             promoCode.value = promo.code;
             alert(`Copied ${promo.code} to clipboard`);
+            calculateFinalPrice();
         });
 
         promoCard.appendChild(codeEl);
@@ -141,14 +142,12 @@ const renderPromoCodes = () => {
     });
 };
 
-const getRollDiscount = (roll, count) => {
+const getRollDiscount = (roll) => {
     const match = roll.match(/\d{4}$/);
     if (!match) return 0;
     const fourDigits = match[0];
     const middleTwo = fourDigits.slice(1, 3);
-    let discount = parseInt(middleTwo) || 0;
-    const maxDiscount = count > 2 ? 60 : 50;
-    return discount > maxDiscount ? maxDiscount : discount;
+    return parseInt(middleTwo) || 0;
 };
 
 const getPromoDiscount = (code) => {
@@ -160,13 +159,11 @@ const getPromoDiscount = (code) => {
 
 const calculateFinalPrice = () => {
     const baseTotal = selectedProducts.reduce((acc, item) => acc + (item.product.price * item.quantity), 0);
-    const rollDisc = getRollDiscount(rollNumber.value, selectedProducts.length);
+    const rollDisc = getRollDiscount(rollNumber.value);
     const promoDisc = getPromoDiscount(promoCode.value);
-    let totalDiscount = rollDisc + promoDisc;
-    const maxAllowed = selectedProducts.length > 2 ? 60 : 50;
-    if (totalDiscount > maxAllowed) totalDiscount = maxAllowed;
+    const totalDiscount = rollDisc + promoDisc;
     const discountedPrice = baseTotal * (1 - totalDiscount / 100);
-    discountText.textContent = `Discount: ${totalDiscount}%`;
+    discountText.innerHTML = `Discount: ${totalDiscount}% (Roll: ${rollDisc}%, Promo: ${promoDisc}%)`;
     finalPriceEl.textContent = `Final Price: PKR ${discountedPrice.toFixed(0)}`;
 };
 
@@ -188,7 +185,6 @@ resetBtn.addEventListener("click", () => {
 rollNumber.addEventListener("input", calculateFinalPrice);
 promoCode.addEventListener("input", calculateFinalPrice);
 
-// Initial Render
 renderProducts(products);
 renderPromoCodes();
 calculateFinalPrice();
