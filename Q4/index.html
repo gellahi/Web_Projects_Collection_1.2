@@ -1,11 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Task 4 – Bank Account System:</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    
+    <div class="sidebar" id="sidebar">
+        <div class="sidebarHeader">
+            <h2>Bank Account System</h2>
+        </div>
+        <nav class="navLinks">
+            <a href="#" class="navLink active" data-page="dashboard">
+                <svg viewBox="0 0 24 24" class="icon">
+                    <path
+                        d="M3 13h1v7c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-7h1a1 1 0 0 0 .7-1.7L12 2.7a1 1 0 0 0-1.4 0l-8.3 8.6A1 1 0 0 0 3 13zm6 7v-5h6v5H9z" />
+                </svg>
+                <span>Dashboard</span>
+            </a>
+            <a href="#" class="navLink" data-page="transactions">
+                <svg viewBox="0 0 24 24" class="icon">
+                    <path
+                        d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14H6v-2h6v2zm4-4H6v-2h10v2zm0-4H6V7h10v2z" />
+                </svg>
+                <span>Transactions</span>
+            </a>
+            <a href="#" class="navLink" data-page="settings">
+                <svg viewBox="0 0 24 24" class="icon">
+                    <path
+                        d="M20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69zm-2 5.79V18h-3.52L12 20.48 9.52 18H6v-3.52L3.52 12 6 9.52V6h3.52L12 3.52 14.48 6H18v3.52L20.48 12 18 14.48z" />
+                </svg>
+                <span>Settings</span>
+            </a>
+        </nav>
+    </div>
+
+    <div class="mainContent">
+        <div class="headerBar">
+            <h1 id="pageTitle">Dashboard</h1>
+            <div class="userProfile">
+                <span id="accountNumber"></span>
+            </div>
+        </div>
+
+        <div id="dashboard" class="page">
+            <div class="dashboard">
+                <div class="balanceCard">
+                    <div class="balanceHeader">
+                        <h3 class="balanceTitle">Total Balance</h3>
+                        <span class="balanceChange">+2.36%</span>
+                    </div>
+                    <div class="balanceInfo">
+                        <h2 id="balanceAmount" class="balanceAmount"></h2>
+                        <div class="balanceStats">
+                            <div class="statItem">
+                                <span class="statLabel">Income</span>
+                                <span class="statValue positive">↑ PKR 30,000</span>
+                            </div>
+                            <div class="statItem">
+                                <span class="statLabel">Expenses</span>
+                                <span class="statValue negative">↓ PKR 20,000</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accountsSection">
+                    <div class="accountCard">
+                        <h3 id="accountNumber" class="accountNumber"></h3>
+                        <p id="accountBalance" class="accountBalance"></p>
+                        <div class="transactButtons">
+                            <button id="depositBtn" class="btn depositBtn">Deposit</button>
+                            <button id="withdrawBtn" class="btn withdrawBtn">Withdraw</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="transactionPanel">
+                    <div class="transactionPanelHeader">
+                        <h3>Recent Transactions</h3>
+                        <button id="downloadBtn" class="downloadBtn">Download History</button>
+                    </div>
+                    <div id="transactionList" class="transactionList"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="transactions" class="page hidden">
+            <div class="transactionPanel">
+                <div class="transactionPanelHeader">
+                    <h3>All Transactions</h3>
+                    <button id="downloadBtn" class="downloadBtn">Download History</button>
+                </div>
+                <div id="transactionList" class="transactionList"></div>
+            </div>
+        </div>
+
+        <div id="settings" class="page hidden">
+            <div class="settingsPanel">
+                <h3>Settings</h3>
+                <div class="settingsItem">
+                    <label for="bankName">Bank Name:</label>
+                    <input type="text" id="bankName" value="Bank App">
+                </div>
+                <div class="settingsItem">
+                    <label for="themeToggle">Theme:</label>
+                    <button id="themeToggle" class="btn">Toggle Theme</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="overlay" class="overlay">
+        <div id="modal" class="modal">
+            <h3 id="modalTitle"></h3>
+            <input type="number" id="modalInput" placeholder="Enter amount">
+            <div id="validationMessage" class="validationMessage"></div>
+            <div id="suggestions" class="suggestions"></div>
+            <div class="modalActions">
+                <button id="cancelBtn" class="btn cancelBtn">Cancel</button>
+                <button id="confirmBtn" class="btn depositBtn">Confirm</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
+
 </html>
