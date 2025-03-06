@@ -256,6 +256,13 @@ select:focus {
     color: #007bff;
 }
 
+.originalPrice {
+    font-size: 1.1rem;
+    color: #555;
+    text-decoration: line-through;
+    margin-bottom: 0.25rem;
+}
+
 .finalPrice {
     font-weight: bold;
     font-size: 1.5rem;

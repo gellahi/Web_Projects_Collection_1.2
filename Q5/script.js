@@ -182,10 +182,23 @@ const calculateFinalPrice = () => {
 
     const discountedPrice = baseTotal * (1 - totalDiscount / 100);
 
+    const originalPriceEl = document.createElement("div");
+    originalPriceEl.className = "originalPrice";
+    originalPriceEl.textContent = `Original Price: PKR ${baseTotal.toFixed(0)}`;
+
     if (originalDiscount > maxDiscount) {
         discountText.innerHTML = `Discount: ${totalDiscount}% (capped from ${originalDiscount}%)`;
     } else {
         discountText.innerHTML = `Discount: ${totalDiscount}% (Roll: ${rollDisc}%, Promo: ${promoDisc}%)`;
+    }
+
+    const totalsRow = document.querySelector(".totalsRow");
+    const existingOriginal = totalsRow.querySelector(".originalPrice");
+
+    if (existingOriginal) {
+        existingOriginal.textContent = `Original Price: PKR ${baseTotal.toFixed(0)}`;
+    } else {
+        totalsRow.insertBefore(originalPriceEl, discountText);
     }
 
     finalPriceEl.textContent = `Final Price: PKR ${discountedPrice.toFixed(0)}`;
