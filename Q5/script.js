@@ -157,13 +157,37 @@ const getPromoDiscount = (code) => {
     return 0;
 };
 
+// const calculateFinalPrice = () => {
+//     const baseTotal = selectedProducts.reduce((acc, item) => acc + (item.product.price * item.quantity), 0);
+//     const rollDisc = getRollDiscount(rollNumber.value);
+//     const promoDisc = getPromoDiscount(promoCode.value);
+//     const totalDiscount = rollDisc + promoDisc;
+//     const discountedPrice = baseTotal * (1 - totalDiscount / 100);
+//     discountText.innerHTML = `Discount: ${totalDiscount}% (Roll: ${rollDisc}%, Promo: ${promoDisc}%)`;
+//     finalPriceEl.textContent = `Final Price: PKR ${discountedPrice.toFixed(0)}`;
+// };
+
 const calculateFinalPrice = () => {
     const baseTotal = selectedProducts.reduce((acc, item) => acc + (item.product.price * item.quantity), 0);
     const rollDisc = getRollDiscount(rollNumber.value);
     const promoDisc = getPromoDiscount(promoCode.value);
-    const totalDiscount = rollDisc + promoDisc;
+    let totalDiscount = rollDisc + promoDisc;
+
+    const maxDiscount = 60;
+    const originalDiscount = totalDiscount;
+
+    if (totalDiscount > maxDiscount) {
+        totalDiscount = maxDiscount;
+    }
+
     const discountedPrice = baseTotal * (1 - totalDiscount / 100);
-    discountText.innerHTML = `Discount: ${totalDiscount}% (Roll: ${rollDisc}%, Promo: ${promoDisc}%)`;
+
+    if (originalDiscount > maxDiscount) {
+        discountText.innerHTML = `Discount: ${totalDiscount}% (capped from ${originalDiscount}%)`;
+    } else {
+        discountText.innerHTML = `Discount: ${totalDiscount}% (Roll: ${rollDisc}%, Promo: ${promoDisc}%)`;
+    }
+
     finalPriceEl.textContent = `Final Price: PKR ${discountedPrice.toFixed(0)}`;
 };
 
